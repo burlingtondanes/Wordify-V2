@@ -1,0 +1,164 @@
+<html>
+  <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<style type="text/css">
+body{
+  background-image: url("background.png")
+}
+.mdl-layout__drawer{
+  background-color: #D1C4E9
+}
+
+header.custom-header {
+  background: #D1C4E9;
+  position: fixed;
+}
+
+.mdl-layout__header-row span.mdl-layout-title {
+  color: #9E9E9E;
+  text-transform: uppercase;
+}
+
+.custom-header .material-icons {
+  color: #CFD8DC;
+}
+
+.custom-header a.mdl-navigation__link {
+  color: #eee;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.custom-header a.mdl-navigation__link:hover {
+  color: #fff;
+}
+
+.mdl-layout__drawer span.mdl-layout-title {
+  background: #111;
+  color: #9E9E9E;
+}
+
+.mdl-layout__drawer a.mdl-navigation__link {
+  color: #eee;
+  font-weight: 700;
+  font-size: 14px;
+}
+.mdl-layout__drawer a.mdl-navigation__link:hover {
+  color: #000;
+}
+
+.mdl-layout .mdl-layout__drawer{
+  background: #212121;
+  position: fixed;
+}
+
+
+div.desc{
+    background-color: #000;
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    opacity: 0.5;
+    width: 69%;
+}
+
+.fix{
+    width: 100%;
+    padding: 0px;
+}
+
+.h1{
+	color: white;
+}
+</style>
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="custom-header mdl-layout__header--transparent mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title"></span>
+            <div class="mdl-layout-spacer navbar-fixed"></div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+            
+                
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Wordify</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="index.html"><font size="4">Home</font></a>
+            <a class="mdl-navigation__link" href="scanner.html"><font size="4">Scanner</font></a>
+            <a class="mdl-navigation__link" href="my scans.html"><font size="4">My Scans</font></a>
+            <a class="mdl-navigation__link" href="loginsignup.html"><font size="4">Login/SignUp</font></a>
+        </nav>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+        
+        <center>
+
+        <center>
+        <h1>Scanner</h1>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+        <p>URL:</p>
+        <input type="text" id="url" placeholder="Image URL" />
+<input type="button" id="go_button" value="Run" />
+<div id="ocr_results"> </div>
+<div id="ocr_status"> </div>
+          </center>
+        </div>
+
+  
+  </center>
+
+
+
+
+        </div>
+    </main>
+</div>
+
+
+
+
+</body>
+        <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'>
+          
+function runOCR(url) {
+    Tesseract.recognize(url)
+         .then(function(result) {
+            document.getElementById("ocr_results")
+                    .innerText = result.text;
+         }).progress(function(result) {
+            document.getElementById("ocr_status")
+                    .innerText = result["status"] + " (" +
+                        (result["progress"] * 100) + "%)";
+        });
+}
+document.getElementById("go_button")
+        .addEventListener("click", function(e) {
+            var url = document.getElementById("url").value;
+            runOCR(url);
+        });
+
+        </script>
+
+</html>
