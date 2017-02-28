@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <style type="text/css">
 body{
   background-color: #7E57C2
@@ -671,7 +672,7 @@ a:active{
 <p></p>
         <p>URL:</p>
         <div class="group">
-      <input type="text" required id="url" placeholder="Image URL">
+      <input class="tesseract" type="text" required id="url" placeholder="Image URL">
       <span class="highlight"></span>
       <span class="bar"></span>
     </div>
@@ -710,6 +711,7 @@ function runOCR(url) {
                         (result["progress"] * 100) + "%)";
         });
 }
+
 document.getElementById("go_button")
         .addEventListener("click", function(e) {
             var url = document.getElementById("url").value;
